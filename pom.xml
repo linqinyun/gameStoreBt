@@ -31,9 +31,8 @@
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
-      <version>1.2.11</version>
+      <version>1.2.3</version>
     </dependency>
-
     <!-- Spring -->
     <!-- 1)包含Spring 框架基本的核心工具类。Spring 其它组件要都要使用到这个包里的类，是其它组件的基本核心 -->
     <dependency>
@@ -123,13 +122,11 @@
       <version>8.0.16</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/com.mchange/c3p0 -->
     <dependency>
-      <groupId>com.mchange</groupId>
+      <groupId>c3p0</groupId>
       <artifactId>c3p0</artifactId>
-      <version>0.9.5.5</version>
+      <version>0.9.1.2</version>
     </dependency>
-
     <!-- 图片处理 -->
     <!-- https://mvnrepository.com/artifact/net.coobird/thumbnailator -->
     <dependency>
@@ -154,7 +151,6 @@
       <artifactId>jedis</artifactId>
       <version>2.9.0</version>
     </dependency>
-
   </dependencies>
 
   <build>
