@@ -3,6 +3,9 @@ package com.lin.gamestroe.entity;
 import java.math.BigDecimal;
 import java.util.Date;
 
+/**
+ * 产品实体类
+ */
 public class Product {
     private Long productId;
     private Long productCategoryId;

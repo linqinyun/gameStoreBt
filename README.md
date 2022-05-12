@@ -19,6 +19,25 @@
 - 分类表
 - 管理员表
 
+### 流程
+
+1. 设计
+2. 数据库
+3. 目录结构
+4. maven项目配置pom，加载jar包
+5. 实体类
+6. 自下而上配置
+   1. 数据库jdbc配置
+   2. mybatis-config配置
+   3. spring配置
+      1. spring-dao配置
+      2. spring-service配置
+      3. spring-web配置
+   4. web.xml整合配置、spring配置
+7. 测试
+   1. 测试配置
+   2. 测试结构
+
 #### 记录
 
 1. 配置文件/目录结构
