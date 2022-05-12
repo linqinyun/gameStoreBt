@@ -10,7 +10,7 @@ import java.util.Date;
 public class AuthUser {
     private Long authId;
     private String username;
-    private String passwrod;
+    private String password;
     private Date createTime;
     private Date updateTime;
 
@@ -30,12 +30,12 @@ public class AuthUser {
         this.username = username;
     }
 
-    public String getPasswrod() {
-        return passwrod;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPasswrod(String passwrod) {
-        this.passwrod = passwrod;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Date getCreateTime() {

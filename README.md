@@ -37,6 +37,9 @@
 7. 测试
    1. 测试配置
    2. 测试结构
+8. 日志文件-logback
+   1. logback.xml配置
+   2. 配置在controller、service层中使用
 
 #### 记录
 
