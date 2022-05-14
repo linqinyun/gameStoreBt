@@ -30,7 +30,7 @@ public class AuthUserServiceImpl implements AuthUserService {
 
     @Override
     public AuthUser getAuthUserByUserNameAndPwd(String userName, String password) {
-        return authUserDao.queryAuthByUserNameAndPwd(userName,password);
+        return authUserDao.queryAuthByUserNameAndPwd(userName, password);
     }
 
     @Override
