@@ -42,7 +42,7 @@ public class AuthUserDaoTest extends BaseTest {
 
     @Test
     public void testInsertAuthUser() {
-        String username = "admin1";
+        String username = "admin3";
         String password = "1234";
         Date createTime = new Date();
         Date updateTime = new Date();

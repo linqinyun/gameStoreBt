@@ -24,7 +24,7 @@ public class AuthUserController {
     private AuthUserService authUserService;
 
     /**
-     * 列表
+     * 管理员列表
      *
      * @return
      */
@@ -51,6 +51,12 @@ public class AuthUserController {
         return modelMap;
     }
 
+    /**
+     * 创建账户
+     *
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/bindAuth", method = RequestMethod.POST)
     @ResponseBody
     private Map<String, Object> bindAuthUser(HttpServletRequest request) {
@@ -67,6 +73,7 @@ public class AuthUserController {
             AuthUserExecution ae = authUserService.bindAuthUser(authUser);
             if (ae.getState() == AuthUserStateEnum.SUCCESS.getState()) {
                 //填入session
+                request.getSession().setAttribute("auth", ae.getAuthUser());
                 modelMap.put("success", true);
             } else {
                 modelMap.put("success", false);
@@ -78,4 +85,76 @@ public class AuthUserController {
         }
         return modelMap;
     }
+
+    /**
+     * 修改密码
+     *
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/changeauthuserpwd", method = RequestMethod.POST)
+    @ResponseBody
+    private Map<String, Object> changeAuthUserPwd(HttpServletRequest request) {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        Long authId = HttpServletRequestUtil.getLong(request, "authId");
+        String username = HttpServletRequestUtil.getString(request, "username");
+        String password = HttpServletRequestUtil.getString(request, "password");
+        String newPassword = HttpServletRequestUtil.getString(request, "newPassword");
+        if (authId != null && username != null && password != null && newPassword != null && !password.equals(newPassword)) {
+            AuthUserExecution ae = authUserService.modifyAuthUser(authId, username, password, newPassword);
+            if (ae.getState() == AuthUserStateEnum.SUCCESS.getState()) {
+                modelMap.put("success", true);
+                //覆盖原信息
+                request.getSession().setAttribute("auth", ae.getAuthUser());
+            } else {
+                modelMap.put("success", false);
+                modelMap.put("errMsg", ae.getStateInfo());
+            }
+        } else {
+            modelMap.put("success", false);
+            modelMap.put("errMsg", "缺少必要信息！");
+        }
+        return modelMap;
+    }
+
+    /**
+     * 登录验证
+     *
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/logincheck", method = RequestMethod.POST)
+    @ResponseBody
+    private Map<String, Object> loginCheck(HttpServletRequest request) {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        String username = HttpServletRequestUtil.getString(request, "username");
+        String password = HttpServletRequestUtil.getString(request, "password");
+        if (username != null && password != null) {
+            AuthUser authUser = new AuthUser();
+            authUser = authUserService.getAuthUserByUserNameAndPwd(username, password);
+            if (authUser != null) {
+                modelMap.put("success", true);
+                // 同时在session里设置用户信息
+                request.getSession().setAttribute("auth", authUser);
+            } else {
+                modelMap.put("success", false);
+                modelMap.put("errMsg", "账号密码错误！");
+            }
+        } else {
+            modelMap.put("success", false);
+            modelMap.put("errMsg", "账号密码为空！");
+        }
+        return modelMap;
+    }
+
+    @RequestMapping(value = "/logout",method = RequestMethod.GET)
+    @ResponseBody
+    private Map<String, Object> logout(HttpServletRequest request) {
+        Map<String, Object> modelMap = new HashMap<String, Object>();
+        //清空session
+        request.getSession().setAttribute("user", null);
+        modelMap.put("success", true);
+        return modelMap;
+    }
+
 }

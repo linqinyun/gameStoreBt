@@ -33,7 +33,7 @@ public class AuthUserServiceTest extends BaseTest {
     }
     @Test
     public void testBindAuthUser(){
-        String username = "admin3";
+        String username = "admin4";
         String password = "1234";
         Date createTime = new Date();
         Date updateTime = new Date();
@@ -43,7 +43,7 @@ public class AuthUserServiceTest extends BaseTest {
         authUser.setCreateTime(createTime);
         authUser.setUpdateTime(updateTime);
         AuthUserExecution ae = authUserService.bindAuthUser(authUser);
-//        System.out.println(ae.getState());
+//        System.out.println(ae.getAuthUser().getAuthId());
         assertEquals(AuthUserStateEnum.SUCCESS.getState(),ae.getState());
     }
     @Test
