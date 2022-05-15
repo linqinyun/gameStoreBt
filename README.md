@@ -46,3 +46,5 @@
 1. 配置文件/目录结构
 2. 编写数据库
 3. 编写实体类
+4. 各层级需求配置dao、service、controller、webXML
+5. 管理员AuthUser及登录后台主要流程完成，无页面状态。

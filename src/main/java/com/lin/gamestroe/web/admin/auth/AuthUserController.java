@@ -53,6 +53,7 @@ public class AuthUserController {
 
     /**
      * 创建账户
+     * 成功添加session
      *
      * @param request
      * @return
@@ -88,6 +89,7 @@ public class AuthUserController {
 
     /**
      * 修改密码
+     * 成功覆盖原session
      *
      * @param request
      * @return
@@ -119,6 +121,7 @@ public class AuthUserController {
 
     /**
      * 登录验证
+     * 成功添加session
      *
      * @param request
      * @return
@@ -147,6 +150,11 @@ public class AuthUserController {
         return modelMap;
     }
 
+    /**
+     * 登出操作，清除session
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/logout",method = RequestMethod.GET)
     @ResponseBody
     private Map<String, Object> logout(HttpServletRequest request) {
