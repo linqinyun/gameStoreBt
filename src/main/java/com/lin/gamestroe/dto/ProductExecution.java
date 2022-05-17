@@ -1,7 +1,7 @@
 package com.lin.gamestroe.dto;
 
 import com.lin.gamestroe.entity.Product;
-import com.lin.gamestroe.enums.ProductCategoryStateEnum;
+import com.lin.gamestroe.enums.ProductStateEnum;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public class ProductExecution {
     }
 
     //失败的构造器
-    public ProductExecution(ProductCategoryStateEnum stateEnum) {
+    public ProductExecution(ProductStateEnum stateEnum) {
         this.state = stateEnum.getState();
         this.stateInfo = stateEnum.getStateInfo();
     }

@@ -22,7 +22,7 @@ public class ProductDaoTest extends BaseTest {
     public void testInsertProduct(){
         Product product = new Product();
         ProductCategory productCategory = new ProductCategory();
-        productCategory.setCategoryId(1102l);
+        productCategory.setCategoryId(1104l);
         product.setProductCategory(productCategory);
         product.setName("只狼·影逝二度");
         product.setNormalPrice(new BigDecimal(249.67));
@@ -68,6 +68,12 @@ public class ProductDaoTest extends BaseTest {
         product.setUpdateTime(new Date());
         product.setProductId(1l);
         int i = productDao.updateProduct(product);
+        assertEquals(1,i);
+    }
+
+    @Test
+    public void testDeleteProduct(){
+        int i = productDao.deleteProduct(3l);
         assertEquals(1,i);
     }
 

@@ -25,8 +25,8 @@ public class ProductCategoryDaoTest extends BaseTest {
     }
     @Test
     public void testBInsert(){
-        Long categoryId = 1103l;
-        String name = "模拟经营游戏";
+        Long categoryId = 1104l;
+        String name = "test";
         Long parentCategoryId = 1101l;
         Date createTime = new Date();
         Date updateTime = new Date();
@@ -53,9 +53,8 @@ public class ProductCategoryDaoTest extends BaseTest {
         assertEquals(1, productCategories.size());
     }
     @Test
-    @Ignore
     public void testEDelete(){
-        Long categoryId = 1102l;
+        Long categoryId = 1104l;
         int i = productCategoryDao.deleteProductCategory(categoryId);
         assertEquals(1,i);
     }

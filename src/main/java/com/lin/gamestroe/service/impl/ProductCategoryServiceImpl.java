@@ -29,6 +29,8 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
         if (productCategory == null) {
             return new ProductCategoryExecution(ProductCategoryStateEnum.FAILED);
         }
+        productCategory.setCreateTime(new Date());
+        productCategory.setUpdateTime(new Date());
         try {
             int effectedNum = productCategoryDao.insertProductCategory(productCategory);
             if (effectedNum <= 0) {
@@ -43,6 +45,7 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
     }
 
     @Override
+    @Transactional
     public ProductCategoryExecution modifProductCategory(Long categoryId, String name) throws ProductCategoryOperationException {
         if (categoryId == null || name == null) {
             return new ProductCategoryExecution(ProductCategoryStateEnum.FAILED);
@@ -60,6 +63,7 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
     }
 
     @Override
+    @Transactional
     public ProductCategoryExecution removeProductCategory(Long categoryId) throws ProductCategoryOperationException {
         if (categoryId == null) {
             return new ProductCategoryExecution(ProductCategoryStateEnum.FAILED);
