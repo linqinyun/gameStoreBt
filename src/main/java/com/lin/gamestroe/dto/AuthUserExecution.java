@@ -21,7 +21,6 @@ public class AuthUserExecution {
         this.stateInfo = stateEnum.getStateInfo();
     }
     //成功的构造器-1
-
     public AuthUserExecution(AuthUserStateEnum stateEnum, AuthUser authUser) {
         this.state = stateEnum.getState();
         this.stateInfo = stateEnum.getStateInfo();

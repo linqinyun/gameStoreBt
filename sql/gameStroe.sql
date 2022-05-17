@@ -2,6 +2,17 @@ CREATE DATABASE IF NOT EXISTS gamestroe DEFAULT CHARSET utf8 COLLATE utf8_genera
 
 USE `gamestroe`;
 
+CREATE TABLE IF NOT EXISTS `gs_product_category`
+(
+    `category_id`        INT(11) UNSIGNED NOT NULL COMMENT 'ID',
+    `name`               VARCHAR(100)     NOT NULL COMMENT '名称',
+    `parent_category_id` INT(11) UNSIGNED NOT NULL COMMENT '父ID',
+    `create_time`        DATETIME DEFAULT NULL COMMENT '创建时间',
+    `update_time`        DATETIME DEFAULT NULL COMMENT '更新时间',
+    PRIMARY KEY (`category_id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
+
 CREATE TABLE IF NOT EXISTS `gs_product`
 (
     `product_id`      INT(100) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID',
@@ -17,20 +28,11 @@ CREATE TABLE IF NOT EXISTS `gs_product`
     `create_time`     DATETIME                   DEFAULT NULL COMMENT '创建时间',
     `update_time`     DATETIME                   DEFAULT NULL COMMENT '更新时间',
     PRIMARY KEY (`product_id`),
-    FOREIGN KEY `fk_category` (`product_category_id`) REFERENCES `gs_category` (`category_id`) ON DELETE SET NULL
+    CONSTRAINT `fk_category_product` FOREIGN KEY (`product_category_id`) REFERENCES `gs_product_category` (`category_id`) ON DELETE SET NULL
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
 
-CREATE TABLE IF NOT EXISTS `gs_category`
-(
-    `category_id`        INT(11) UNSIGNED NOT NULL COMMENT 'ID',
-    `name`               VARCHAR(100)     NOT NULL COMMENT '名称',
-    `parent_category_id` INT(11) UNSIGNED NOT NULL COMMENT '父ID',
-    `create_time`        DATETIME DEFAULT NULL COMMENT '创建时间',
-    `update_time`        DATETIME DEFAULT NULL COMMENT '更新时间',
-    PRIMARY KEY (`category_id`)
-) ENGINE = InnoDB
-  DEFAULT CHARSET = utf8;
+
 
 CREATE TABLE IF NOT EXISTS `gs_auth_user`
 (

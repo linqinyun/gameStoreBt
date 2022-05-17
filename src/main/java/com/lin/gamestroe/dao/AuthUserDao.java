@@ -47,5 +47,5 @@ public interface AuthUserDao {
      * @param authId
      * @return
      */
-    AuthUser queryAuthByAuthId(@Param("authId") Long authId);
+    AuthUser queryAuthByAuthId(@Param("authId") long authId);
 }

@@ -8,7 +8,6 @@ import java.util.Date;
  */
 public class Product {
     private Long productId;
-    private Long productCategoryId;
     private String name;
     private BigDecimal normalPrice;
     private BigDecimal promotionPrice;
@@ -20,20 +19,22 @@ public class Product {
     private Date createTime;
     private Date updateTime;
 
+    private ProductCategory productCategory;
+
+    public ProductCategory getProductCategory() {
+        return productCategory;
+    }
+
+    public void setProductCategory(ProductCategory productCategory) {
+        this.productCategory = productCategory;
+    }
+
     public Long getProductId() {
         return productId;
     }
 
     public void setProductId(Long productId) {
         this.productId = productId;
-    }
-
-    public Long getProductCategoryId() {
-        return productCategoryId;
-    }
-
-    public void setProductCategoryId(Long productCategoryId) {
-        this.productCategoryId = productCategoryId;
     }
 
     public String getName() {
