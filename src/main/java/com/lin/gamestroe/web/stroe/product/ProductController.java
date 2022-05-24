@@ -1,4 +1,4 @@
-package com.lin.gamestroe.web.admin.product;
+package com.lin.gamestroe.web.stroe.product;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lin.gamestroe.dto.ProductCategoryExecution;

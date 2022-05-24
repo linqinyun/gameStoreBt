@@ -1,4 +1,4 @@
-package com.lin.gamestroe.web.admin.auth;
+package com.lin.gamestroe.web.stroe.local;
 
 import com.lin.gamestroe.dto.AuthUserExecution;
 import com.lin.gamestroe.entity.AuthUser;
