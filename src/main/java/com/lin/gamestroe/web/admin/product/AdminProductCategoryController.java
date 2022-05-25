@@ -19,7 +19,7 @@ public class AdminProductCategoryController {
 
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     public ModelAndView categoryList(){
-        ModelAndView modelAndView = new ModelAndView("redirect:/admin/pcate/404");
+        ModelAndView modelAndView = new ModelAndView("/test/demo");
         List<ProductCategory> productCategoryList = productCategoryService.getProductCategoryList();
         modelAndView.addObject("test","123");
         modelAndView.addObject("list",productCategoryList);
